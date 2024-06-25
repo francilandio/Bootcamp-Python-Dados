@@ -1,7 +1,7 @@
 # Escreva um programa que soma dois números inteiros pelo usuário.
 
-valor1 = float(input("Digite um valor: "))
-valor2 = float(input("Digite outro valor: "))
+valor1 = int(input("Digite um valor: "))
+valor2 = int(input("Digite outro valor: "))
 
 resultado = valor1 + valor2
 

@@ -1,5 +1,0 @@
-# Crie um programa que receba o nome completo do usuário e imprima o nome com todas as letras minúsculas.
-
-nome_usuario = input("Digite seu nome completo: ")
-
-print(nome_usuario.upper())

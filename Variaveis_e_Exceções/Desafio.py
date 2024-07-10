@@ -2,7 +2,17 @@
 # O programa deve, então, imprimir uma mensagem saudando o usuário pelo nome e informando o valor do salário em comparação com o bônus recebido.
 
 CONSTANTE_BONUS = 1000
+
 nome = input("Digite o seu nome: ")
+if nome.isdigit():
+    print("Digite um nome válido")
+elif nome.isspace():
+    print("Digite um nome válido")
+elif len(nome) == 0:
+    print("Digite um nome válido")
+else:
+    print(f"Olá, {nome}!")
+
 salario = float(input("Qual o seu salário: "))
 percentual_bonus = float(input("Qual o percentual de bônus? "))
 

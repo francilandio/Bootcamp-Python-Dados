@@ -4,6 +4,7 @@
 CONSTANTE_BONUS = 1000
 
 nome = input("Digite o seu nome: ")
+
 if nome.isdigit():
     print("Digite um nome válido")
 elif nome.isspace():
@@ -13,8 +14,15 @@ elif len(nome) == 0:
 else:
     print(f"Olá, {nome}!")
 
-salario = float(input("Qual o seu salário: "))
-percentual_bonus = float(input("Qual o percentual de bônus? "))
+try:
+    salario = float(input("Qual o seu salário: "))
+except ValueError:
+    print("Digite um valor válido")
+
+try:
+    percentual_bonus = float(input("Qual o percentual de bônus? "))
+except ValueError:
+    print("Digite um valor válido")
 
 # Cálculo do KPI do bônus de 2024 é de 1.000 + salário * bônus
 

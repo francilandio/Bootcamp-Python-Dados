@@ -3,7 +3,17 @@
 
 CONSTANTE_BONUS = 1000
 
-nome = input("Digite o seu nome: ")
+try:
+    nome = input("Digite o seu nome: ")
+
+    if len(nome) == 0:
+        raise ValueError("O nome não pode estar vazio.")
+    elif any(char.isdigit() for char in nome):
+        raise ValueError("O nome não deve conter números.")
+    else:
+        print(f"Nome válido: {nome}")
+except ValueError as e:
+    print(e)
 
 if nome.isdigit():
     print("Digite um nome válido")
@@ -16,13 +26,17 @@ else:
 
 try:
     salario = float(input("Qual o seu salário: "))
+    if salario < 0:
+        print("Por favor, digite um valor positivo para o salário.")
 except ValueError:
-    print("Digite um valor válido")
+    print("Entrada inválida para salário. Por favor, digite um número.")
 
 try:
     percentual_bonus = float(input("Qual o percentual de bônus? "))
+    if percentual_bonus < 0:
+        print("Por favor, digite um valor positivo.")
 except ValueError:
-    print("Digite um valor válido")
+    print("Entrada inválida para salário. Por favor, digite um número.")
 
 # Cálculo do KPI do bônus de 2024 é de 1.000 + salário * bônus
 

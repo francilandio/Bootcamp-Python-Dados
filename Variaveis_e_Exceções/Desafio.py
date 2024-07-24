@@ -2,14 +2,14 @@
 # O programa deve, então, imprimir uma mensagem saudando o usuário pelo nome e informando o valor do salário em comparação com o bônus recebido.
 
 CONSTANTE_BONUS = 1000
-nome_valido = False
-salario_valido = False
-bonus_valido = False
+nome_valido: bool = False
+salario_valido: bool = False
+bonus_valido: bool = False
 
 # Loop de entrada e verificação do nome
 while not nome_valido:
     try:
-        nome = input("Digite o seu nome: ")
+        nome: str = input("Digite o seu nome: ")
 
         if len(nome) == 0:
             raise ValueError("O nome não pode estar vazio.")
@@ -19,34 +19,34 @@ while not nome_valido:
             raise ValueError("Digite um nome válido.")
         else:
             print(f"Nome válido: {nome}")
-            nome_valido = True
+            nome_valido: bool = True
     except ValueError as e:
         print(e)
 
 # Loop para entrada e verificação de salário
 while not salario_valido:
     try:
-        salario = float(input("Qual o seu salário: "))
+        salario: float = float(input("Qual o seu salário: "))
         if salario < 0:
             print("Por favor, digite um valor positivo para o salário.")
         else:
-            salario_valido = True
+            salario_valido: bool = True
     except ValueError:
         print("Entrada inválida para salário. Por favor, digite um número.")
 
 # Loop para entrada e verificação de bônus
 while not bonus_valido:
     try:
-        bonus = float(input("Qual o percentual de bônus? "))
+        bonus: float = float(input("Qual o percentual de bônus? "))
         if bonus < 0:
             print("Por favor, digite um valor positivo.")
         else:
-            bonus_valido = True
+            bonus_valido: bool = True
     except ValueError:
         print("Entrada inválida para salário. Por favor, digite um número.")
 
 # Cálculo do KPI do bônus de 2024 é de 1.000 + salário * bônus
 
-resultado = CONSTANTE_BONUS + salario * bonus
+resultado: float = CONSTANTE_BONUS + salario * bonus
 
 print(f"Olá {nome}, o seu bônus é de {resultado}")

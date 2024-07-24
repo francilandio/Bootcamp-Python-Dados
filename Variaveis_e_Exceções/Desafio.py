@@ -2,44 +2,51 @@
 # O programa deve, então, imprimir uma mensagem saudando o usuário pelo nome e informando o valor do salário em comparação com o bônus recebido.
 
 CONSTANTE_BONUS = 1000
+nome_valido = False
+salario_valido = False
+bonus_valido = False
 
-try:
-    nome = input("Digite o seu nome: ")
+# Loop de entrada e verificação do nome
+while not nome_valido:
+    try:
+        nome = input("Digite o seu nome: ")
 
-    if len(nome) == 0:
-        raise ValueError("O nome não pode estar vazio.")
-    elif any(char.isdigit() for char in nome):
-        raise ValueError("O nome não deve conter números.")
-    else:
-        print(f"Nome válido: {nome}")
-except ValueError as e:
-    print(e)
+        if len(nome) == 0:
+            raise ValueError("O nome não pode estar vazio.")
+        elif any(char.isdigit() for char in nome):
+            raise ValueError("O nome não deve conter números.")
+        elif nome.isspace():
+            raise ValueError("Digite um nome válido.")
+        else:
+            print(f"Nome válido: {nome}")
+            nome_valido = True
+    except ValueError as e:
+        print(e)
 
-if nome.isdigit():
-    print("Digite um nome válido")
-elif nome.isspace():
-    print("Digite um nome válido")
-elif len(nome) == 0:
-    print("Digite um nome válido")
-else:
-    print(f"Olá, {nome}!")
+# Loop para entrada e verificação de salário
+while not salario_valido:
+    try:
+        salario = float(input("Qual o seu salário: "))
+        if salario < 0:
+            print("Por favor, digite um valor positivo para o salário.")
+        else:
+            salario_valido = True
+    except ValueError:
+        print("Entrada inválida para salário. Por favor, digite um número.")
 
-try:
-    salario = float(input("Qual o seu salário: "))
-    if salario < 0:
-        print("Por favor, digite um valor positivo para o salário.")
-except ValueError:
-    print("Entrada inválida para salário. Por favor, digite um número.")
-
-try:
-    percentual_bonus = float(input("Qual o percentual de bônus? "))
-    if percentual_bonus < 0:
-        print("Por favor, digite um valor positivo.")
-except ValueError:
-    print("Entrada inválida para salário. Por favor, digite um número.")
+# Loop para entrada e verificação de bônus
+while not bonus_valido:
+    try:
+        bonus = float(input("Qual o percentual de bônus? "))
+        if bonus < 0:
+            print("Por favor, digite um valor positivo.")
+        else:
+            bonus_valido = True
+    except ValueError:
+        print("Entrada inválida para salário. Por favor, digite um número.")
 
 # Cálculo do KPI do bônus de 2024 é de 1.000 + salário * bônus
 
-resultado = CONSTANTE_BONUS + salario * percentual_bonus
+resultado = CONSTANTE_BONUS + salario * bonus
 
 print(f"Olá {nome}, o seu bônus é de {resultado}")

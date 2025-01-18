@@ -31,7 +31,7 @@ def main():
     dados_processados = processar_dados(dados_brutos)
     vendas_categoria = calcular_vendas_categoria(dados_processados)
     for categoria, total in vendas_categoria.items():
-        print(f'{categoria}: ${total}')
+        print(f'{categoria}: R$ {total}')
 
 if __name__ == '__main__':
     main()
